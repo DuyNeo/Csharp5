@@ -1,0 +1,140 @@
+﻿@import url("https://fonts.googleapis.com/css2?family=Cabin&family=Poppins:ital,wght@0,300;1,200&display=swap");
+
+* {
+    margin-block-start: 0;
+    margin-block-end: 0;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+}
+
+.alertMessage {
+    display: flex;
+    background-color: #fff;
+    padding: 10px 0;
+    align-items: center;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    min-width: 80px;
+    border-radius: 3px;
+    animation: show 0.5s linear forwards, offalert 0.5s linear forwards 3s;
+    position: relative;
+    overflow: hidden;
+    z-index: 100000;
+}
+
+.alert-icon::before {
+    content: "";
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+    position: absolute;
+    height: auto;
+    width: auto;
+    background-color: currentColor;
+    animation: hide 0.3s linear forwards 0.3s;
+}
+
+@keyframes offalert {
+    to {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+}
+
+@keyframes hide {
+    0% {
+        transform: translateX(0px);
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: translateX(calc(-1 * (100% - 3px)));
+    }
+}
+
+@keyframes show {
+    from {
+        transform: translateX(calc(100% + 5px));
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
+
+.alertMessage + .alertMessage {
+    margin-top: 30px;
+}
+
+.alert-body {
+    flex-grow: 1;
+}
+
+.alert-title {
+    font-weight: 600;
+    font-size: 25px;
+}
+
+.alert-desc {
+    color: grey;
+}
+
+.alert-icon,
+.alert-close {
+    padding: 0px 10px;
+}
+
+    .alert-icon:hover,
+    .alert-close:hover {
+        opacity: 0.8;
+        cursor: pointer;
+    }
+
+.alert-icon {
+    padding-right: 15px;
+    font-size: 25px;
+}
+
+.alert-close {
+    padding-left: 15px;
+}
+
+.alert--true {
+    border-color: #47d864;
+}
+
+    .alert--true .alert-icon {
+        color: #47d864;
+    }
+
+    .alert--true .alert-icon {
+        color: #47d864;
+    }
+
+.alert--info {
+    border-color: #2f86eb;
+}
+
+    .alert--info .alert-icon {
+        color: #2f86eb;
+    }
+
+.alert--false {
+    border-color: #ff623d;
+}
+
+    .alert--false .alert-icon {
+        color: #ff623d;
+    }
+
+#alertMessage {
+    position: fixed;
+    top: 100px;
+    right: 5px;
+    z-index:1000;
+}

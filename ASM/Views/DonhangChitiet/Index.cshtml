@@ -1,0 +1,60 @@
+﻿@model IEnumerable<ASM.Models.DonhangChitiet>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1>Trang chủ</h1>
+
+<p>
+    @*<a asp-action="Create">Create New</a>*@
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DonHang)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MonAn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Soluong)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Thanhtien)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GhiChu)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DonHang.DonhangId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MonAn.TenMon)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Soluong)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Thanhtien)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GhiChu)
+            </td>
+            <td>
+                <a asp-action="Edit"class="btn btn-warning" asp-route-id="@item.ChitietId">Sửa</a> 
+                <a asp-action="Details"class="btn btn-success" asp-route-id="@item.ChitietId">Chi tiết</a> 
+                <a asp-action="Delete"class="btn btn-danger" asp-route-id="@item.ChitietId">Xóa</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

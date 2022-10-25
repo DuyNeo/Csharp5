@@ -1,0 +1,52 @@
+﻿@model ASM.Models.DonhangChitiet
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1>Xóa</h1>
+
+<h3>Bạn có chắc là muốn xóa điều này</h3>
+<div>
+    <h4>DonhangChitiet</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DonHang)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DonHang.DonhangId)
+        </dd class>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.MonAn)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.MonAn.TenMon)
+        </dd class>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Soluong)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Soluong)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Thanhtien)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Thanhtien)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.GhiChu)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.GhiChu)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="ChitietId" />
+        <input type="submit" value="Xóa" class="btn btn-danger" /> |
+        <a asp-action="Index">Trở lại danh sách</a>
+    </form>
+</div>

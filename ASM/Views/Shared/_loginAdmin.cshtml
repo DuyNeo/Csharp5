@@ -1,0 +1,25 @@
+﻿@{
+
+    var Name = HttpContextAccessor.HttpContext.Session.GetString("tenkhach");
+
+}
+@using Microsoft.AspNetCore.Http
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+
+
+@if (Name != null)
+{
+            <a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown">
+                <span class="d-none d-lg-inline me-2 text-gray-600 small">@Name</span>
+                <img class="border rounded-circle img-profile" src="/assets/img/avatars/avatar1.jpeg">
+            </a>
+
+                }
+                else
+                {
+                    <a asp-controller="account" asp-action="admin" class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" >
+                            <span class="d-none d-lg-inline me-2 text-gray-600 small">Đăng nhập</span>
+                            <img class="border rounded-circle img-profile" src="/assets/img/avatars/avatar1.jpeg">
+                    </a>
+
+                }

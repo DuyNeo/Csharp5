@@ -1,0 +1,15 @@
+﻿@{
+    ViewData["Title"] = "InfoUser";
+}
+
+
+
+<div style="margin-top:200px">
+    <h1 class="alert alert-primary">Thông tin user</h1>
+
+    <h3>Tên: @ViewBag.nameuser</h3>
+    <h3>Email: @ViewBag.emailuser</h3>
+    
+
+    <a asp-action="logout" class="btn btn-danger">Đăng xuất</a>
+</div>

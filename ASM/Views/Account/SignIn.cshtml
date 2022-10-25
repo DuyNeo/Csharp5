@@ -1,0 +1,39 @@
+﻿@{
+    ViewData["Title"] = "signin";
+}
+<style>
+    .form-group span {
+        display: none;
+        margin-bottom : 2rem;
+    }
+
+    span:not(:empty) {
+        display: inline-block;
+    }
+</style>
+
+@model LoginModel;
+<div style="margin-top:140px">
+
+    @if (ViewData["message"] != null)
+    {
+        <div class="alert alert-danger">@ViewData["message"]</div>
+    }
+    <form asp-action="signin" asp-controller="account" method="post">
+
+        <div class="form-group">
+            <label asp-for="UserName"></label>
+            <input asp-for="UserName" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter username">
+            <span asp-validation-for="UserName" class="badge bg-danger text-light" ></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Password"></label>
+            <input asp-for="Password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            <span asp-validation-for="Password" class="badge bg-danger text-light"></span>
+
+        </div>
+        <button type="submit" class="btn btn-primary">Đăng nhập</button>
+    </form>
+
+    <h3>Bạn chưa có tài khoản ? <a asp-action="signup">Đăng ký</a></h3>
+</div>

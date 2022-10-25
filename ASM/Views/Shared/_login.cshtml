@@ -1,0 +1,33 @@
+﻿@{
+
+    var Name = HttpContextAccessor.HttpContext.Session.GetString("tenkhach");
+    var isAdmin = HttpContextAccessor.HttpContext.Session.GetString("isAdmin") != null? bool.Parse(HttpContextAccessor.HttpContext.Session.GetString("isAdmin")) : false;
+
+
+}
+@using Microsoft.AspNetCore.Http
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+
+
+@if (Name != null)
+{
+
+    <h3>Xin chào @Name</h3>
+    @if (isAdmin)
+    {
+        <a asp-action="index" asp-controller="nguoidung" class="btn btn-primary">Quản trị</a>
+
+    }
+
+    <a asp-action="infouser" asp-controller="account" class="btn ">Thông tin tài khoản</a>
+    <a asp-action="logout" asp-controller="account" class="btn btn-danger ">Đăng xuất</a>
+
+
+}
+else
+{
+
+    <h3>Bạn chưa đăng nhập</h3>
+
+    <a asp-action="signin" asp-controller="account" class="btn ">Tiến hành đăng nhập</a>
+}

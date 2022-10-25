@@ -1,0 +1,59 @@
+﻿@{
+    ViewData["Title"] = "signup";
+}
+
+@model SignUpModel;
+
+<style>
+    .form-group span {
+        display: none;
+    }
+
+    span:not(:empty) {
+        display: inline-block;
+    }
+</style>
+<div style="margin-top:140px">
+
+    @if (ViewData["message"] != null)
+    {
+        <div class="alert alert-success">@ViewData["message"]</div>
+    }
+<form asp-action="signup" asp-controller="account" method="post">
+    <div class="form-group">
+        <label asp-for="FullName"></label>
+        <input asp-for="FullName" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Name">
+        <span asp-validation-for="FullName" class="alert alert-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="UserName"></label>
+        <input asp-for="UserName" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+        <span asp-validation-for="UserName" class="alert alert-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Phone"></label>
+        <input asp-for="Phone" type="tel" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+        <span asp-validation-for="Phone" class="alert alert-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Address"></label>
+        <input asp-for="Address" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Name">
+        <span asp-validation-for="Address" class="alert alert-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Password"></label>
+        <input asp-for="Password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+        <span asp-validation-for="Password" class="alert alert-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ConfirmPassword"></label>
+        <input asp-for="ConfirmPassword" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+        <span asp-validation-for="ConfirmPassword" class="alert alert-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Đăng ký</button>
+</form>
+
+    <h3>Bạn đã có tài khoản ? <a asp-action="signin">Đăng nhập</a></h3>
+
+</div>

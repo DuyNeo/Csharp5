@@ -1,0 +1,25 @@
+﻿@model ASM.Models.DanhMuc
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1>Chi tiết danh mục</h1>
+
+<div>
+    <h4>Danh mục</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TenDanhMuc)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TenDanhMuc)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Sửa</a> |
+    <a asp-action="Index">Trở lại danh sách</a>
+</div>
